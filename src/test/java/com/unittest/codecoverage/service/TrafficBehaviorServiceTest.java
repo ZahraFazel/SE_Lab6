@@ -11,6 +11,8 @@ import com.unittest.codecoverage.models.TrafficLigth;
 import com.unittest.codecoverage.services.TrafficBehaviorService;
 import com.unittest.codecoverage.services.impl.TrafficBehaviorServiceImpl;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+
 public class TrafficBehaviorServiceTest {
 	
 	private TrafficBehaviorService trafficBehaviorService = new TrafficBehaviorServiceImpl();
@@ -59,6 +61,10 @@ public class TrafficBehaviorServiceTest {
 		Footpassenger currentFootpassengerBehavior = new Footpassenger();
 		currentFootpassengerBehavior.setCrossedTheRoad(true);
 		currentFootpassengerBehavior.setCrossedTheCrosswalk(true);
+
+        assertDoesNotThrow(() ->
+                trafficBehaviorService.footpassengerCrossTheStreet(currentTrafic,
+                        currentFootpassengerBehavior));
 
 	}
 
